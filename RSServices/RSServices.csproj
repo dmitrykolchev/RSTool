@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Command.cs" />
+    <Compile Include="CommandArgumentAttribute.cs" />
+    <Compile Include="CommandArgumentMetadata.cs" />
+    <Compile Include="CommandAttribute.cs" />
     <Compile Include="CommandCreateDataSets.cs" />
     <Compile Include="CommandLineParser.cs" />
     <Compile Include="CommandShow.cs" />

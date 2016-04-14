@@ -7,14 +7,14 @@ using RSServices.RS2010;
 
 namespace RSServices
 {
-    public class CommandShow: Command
+    [Command(Name = "Show")]
+    public class CommandShow : Command
     {
         public CommandShow() { }
 
         protected override void ExecuteOverride()
         {
             EnumerateItems(Service, "/", 0);
-
         }
         private static void EnumerateItems(ReportingService2010 rs, string path, int level)
         {

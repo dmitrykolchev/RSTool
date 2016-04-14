@@ -8,61 +8,24 @@ using RSServices.RS2010;
 
 namespace RSServices
 {
-    public class CommandCreateDataSets: Command
+    [Command(Name = "Create-DataSets")]
+    public class CommandCreateDataSets : Command
     {
         public CommandCreateDataSets()
         {
         }
         public bool IsSourceSpecified { get; set; }
+        [CommandArgument(HasValue = true)]
         public string Source { get; set; }
         public bool IsDestinationSpecified { get; set; }
+        [CommandArgument(HasValue = true)]
         public string Destination { get; set; }
         public bool IsOverwriteSpecified { get; set; }
+        [CommandArgument(HasValue = false, Optional = true)]
+        public string Overwrite { get; set; }
         public bool IsDataSourceSpecified { get; set; }
+        [CommandArgument(HasValue = true, Optional = true)]
         public string DataSource { get; set; }
-        protected override ArgumentOptions ValidateCommandArgument(string name)
-        {
-            switch(name)
-            {
-                case "-source":
-                    IsSourceSpecified = true;
-                    return ArgumentOptions.HasValue;
-                case "-destination":
-                    IsDestinationSpecified = true;
-                    return ArgumentOptions.HasValue;
-                case "-datasource":
-                    IsDataSourceSpecified = true;
-                    return ArgumentOptions.HasValue | ArgumentOptions.Optional;
-                case "-overwrite":
-                    IsOverwriteSpecified = true;
-                    return ArgumentOptions.Optional;
-            }
-            return base.ValidateCommandArgument(name);
-        }
-        protected override void ValidateCommand()
-        {
-            if (!IsSourceSpecified || !IsDestinationSpecified)
-                throw new InvalidOperationException();
-            base.ValidateCommand();
-        }
-        protected override void SetArgumentValue(string name, string value)
-        {
-            switch (name)
-            {
-                case "-source":
-                    this.Source = value;
-                    break;
-                case "-destination":
-                    this.Destination = value;
-                    break;
-                case "-datasource":
-                    this.DataSource = value;
-                    break;
-                default:
-                    base.SetArgumentValue(name, value);
-                    break;
-            }
-        }
         protected override void ExecuteOverride()
         {
             string[] files = Directory.GetFiles(Source, "*.rsd", SearchOption.TopDirectoryOnly);
@@ -86,7 +49,7 @@ namespace RSServices
             CatalogItem result = Service.CreateCatalogItem(
                 "DataSet",
                 name,
-                Destination, 
+                Destination,
                 IsOverwriteSpecified,
                 buffer,
                 new Property[] {
