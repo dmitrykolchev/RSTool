@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using RSServices.RS2010;
+using System.ComponentModel;
 
 namespace RSServices
 {
     [Command(Name = "Create-DataSets")]
-    public class CommandCreateDataSets : Command
+    [Description("Позволяет создать новые или обновить существующие разделяемые наборы данных")]
+    public class CommandCreateDataSets : CommandBase
     {
         public CommandCreateDataSets()
         {
@@ -26,7 +28,7 @@ namespace RSServices
         public bool IsDataSourceSpecified { get; set; }
         [CommandArgument(HasValue = true, Optional = true)]
         public string DataSource { get; set; }
-        protected override void ExecuteOverride()
+        protected override void ExecuteOverride(CommandExecutionContext context)
         {
             string[] files = Directory.GetFiles(Source, "*.rsd", SearchOption.TopDirectoryOnly);
             foreach (string file in files)

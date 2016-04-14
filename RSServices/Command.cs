@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using RSServices.RS2010;
-using System.Net;
 using System.Reflection;
 
 namespace RSServices
@@ -23,6 +21,7 @@ namespace RSServices
         protected Command()
         {
         }
+        internal CommandMetadata Metadata { get; set; }
         void InitializeMetadata()
         {
             if (_metadata == null)
@@ -52,10 +51,7 @@ namespace RSServices
         [CommandArgument(Name = "Help", HasValue = false, Optional = true)]
         public string Help { get; set; }
         public bool IsHelpSpecified { get; set; }
-        [CommandArgument(HasValue = true)]
-        public string Url { get; set; }
-        public bool IsUrlSpecified { get; set; }
-        public void Parse(string[] args)
+        internal void Parse(string[] args)
         {
             InitializeMetadata();
             for (int index = 1; index < args.Length; ++index)
@@ -91,9 +87,7 @@ namespace RSServices
                 }
             }
         }
-        private ReportingService2010 _service;
-        public ReportingService2010 Service => _service;
-        public void Execute()
+        public virtual void Execute(CommandExecutionContext context)
         {
             if (IsHelpSpecified)
             {
@@ -101,37 +95,39 @@ namespace RSServices
             }
             else
             {
-                using (ReportingService2010 rs = new ReportingService2010())
-                {
-                    rs.Credentials = CredentialCache.DefaultCredentials;
-                    rs.Url = this.Url;
-                    _service = rs;
-                    ExecuteOverride();
-                }
+                ExecuteInternal(context);
             }
         }
-        protected abstract void ExecuteOverride();
-        protected virtual void ShowCommandHelp()
+        internal virtual void ExecuteInternal(CommandExecutionContext context)
         {
+            ExecuteOverride(context);
+        }
+        protected abstract void ExecuteOverride(CommandExecutionContext context);
+        public void ShowCommandHelp()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine($"Command: {Metadata.Name}");
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("Usage");
-            Console.WriteLine("-----");
+            if (!string.IsNullOrEmpty(Metadata.Description))
+                Console.WriteLine(Metadata.Description);
+            Console.WriteLine("---------------------------------------------");
+            Console.WriteLine("Usage:");
             CommandAttribute attribute = this.GetType().GetCustomAttribute<CommandAttribute>();
 
-            Console.Write($"RSService {attribute.Name} ");
-            foreach (CommandArgumentMetadata metadata in _metadata.Values.OrderBy(t => t.Name))
+            Console.Write($"    RSService {attribute.Name} ");
+            foreach (CommandArgumentMetadata metadata in _metadata.Values.OrderBy(t => t.Name).OrderBy(t => t.Attributes.Optional))
             {
                 if (metadata.Attributes.Optional)
                 {
                     if (metadata.Attributes.HasValue)
-                        Console.Write($"[-{metadata.Name} value]");
+                        Console.Write($"[-{metadata.Name} <value>]");
                     else
                         Console.Write($"[-{metadata.Name}]");
                 }
                 else
                 {
                     if (metadata.Attributes.HasValue)
-                        Console.Write($"-{metadata.Name} value");
+                        Console.Write($"-{metadata.Name} <value>");
                     else
                         Console.Write($"-{metadata.Name}");
                 }

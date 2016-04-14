@@ -50,8 +50,12 @@
     <Compile Include="CommandArgumentAttribute.cs" />
     <Compile Include="CommandArgumentMetadata.cs" />
     <Compile Include="CommandAttribute.cs" />
+    <Compile Include="CommandBase.cs" />
     <Compile Include="CommandCreateDataSets.cs" />
+    <Compile Include="CommandExecutionContext.cs" />
+    <Compile Include="CommandHelp.cs" />
     <Compile Include="CommandLineParser.cs" />
+    <Compile Include="CommandMetadata.cs" />
     <Compile Include="CommandShow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -4,15 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RSServices.RS2010;
+using System.ComponentModel;
 
 namespace RSServices
 {
-    [Command(Name = "Show")]
-    public class CommandShow : Command
+    [Command(Name = "List")]
+    [Description("Позволяет просматривать текущий список объектов")]
+    public class CommandShow : CommandBase
     {
         public CommandShow() { }
 
-        protected override void ExecuteOverride()
+        protected override void ExecuteOverride(CommandExecutionContext context)
         {
             EnumerateItems(Service, "/", 0);
         }
