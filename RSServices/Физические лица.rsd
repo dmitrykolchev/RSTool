@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="Физические_лица">
+    <Query>
+      <DataSourceReference>SamDataSource</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@dat">
+            <ReadOnly>false</ReadOnly>
+            <Nullable>false</Nullable>
+            <OmitFromQuery>false</OmitFromQuery>
+            <rd:DbType>datetime</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>select * from ufn_rep_FL(@dat)</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="ФИО">
+        <DataField>ФИО</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Id">
+        <DataField>Id</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Гражданство">
+        <DataField>Гражданство</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Дата_рождения">
+        <DataField>Дата рождения</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

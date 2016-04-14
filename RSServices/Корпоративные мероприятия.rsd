@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="Корпоративные_мероприятия">
+    <Query>
+      <DataSourceReference>SamDataSource</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@dat">
+            <ReadOnly>false</ReadOnly>
+            <Nullable>false</Nullable>
+            <OmitFromQuery>false</OmitFromQuery>
+            <rd:DbType>datetime</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>select * from ufn_rep_CorpEvents(@dat)</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Наименование_организации">
+        <DataField>Наименование организации</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Id">
+        <DataField>Id</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Тип_корпоративного_мероприятия">
+        <DataField>Тип корпоративного мероприятия</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Организация_id_">
+        <DataField>Организация(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Тип_корпоративного_мероприятия_id_">
+        <DataField>Тип корпоративного мероприятия(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Регистрационный_номер_корпоративного_мероприятия">
+        <DataField>Регистрационный номер корпоративного мероприятия</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Дата_проведения">
+        <DataField>Дата проведения</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Время_проведения">
+        <DataField>Время проведения</DataField>
+        <rd:TypeName>System.TimeSpan</rd:TypeName>
+      </Field>
+      <Field Name="Вид_заседания_id_">
+        <DataField>Вид заседания(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Вид_заседания">
+        <DataField>Вид заседания</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Форма_заседания_id_">
+        <DataField>Форма заседания(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Форма_заседания">
+        <DataField>Форма заседания</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Место_проведения">
+        <DataField>Место проведения</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Председательствующий_id_">
+        <DataField>Председательствующий(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Председательствующий">
+        <DataField>Председательствующий</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Секретарь_id_">
+        <DataField>Секретарь(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Секретарь">
+        <DataField>Секретарь</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Регистрационный_номер_выписки_протокола">
+        <DataField>Регистрационный номер выписки протокола</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Дата_регистрации_выписки">
+        <DataField>Дата регистрации выписки</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Регистрационный_номер__протокола">
+        <DataField>Регистрационный номер  протокола</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Дата_регистрации_протокола">
+        <DataField>Дата регистрации протокола</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Внешний_адресат">
+        <DataField>Внешний адресат</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Регистрационный_номер_повестки_дня">
+        <DataField>Регистрационный номер повестки дня</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Дата_регистрации_повестки_дня">
+        <DataField>Дата регистрации повестки дня</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

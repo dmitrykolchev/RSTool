@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="Органы_управления">
+    <Query>
+      <DataSourceReference>SamDataSource</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@dat">
+            <ReadOnly>false</ReadOnly>
+            <Nullable>false</Nullable>
+            <OmitFromQuery>false</OmitFromQuery>
+            <rd:DbType>datetime</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>select * from dbo.ufn_rep_ManagementOrgans(@dat)</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Организация_id_">
+        <DataField>Организация(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Наименование_органа">
+        <DataField>Наименование органа</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Наименование_участника">
+        <DataField>Наименование участника</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="ФЛ_id_">
+        <DataField>ФЛ(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Пост">
+        <DataField>Пост</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Пост_id_">
+        <DataField>Пост(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Телефон">
+        <DataField>Телефон</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Факс">
+        <DataField>Факс</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Email">
+        <DataField>Email</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Дата_начала_полномочий">
+        <DataField>Дата начала полномочий</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Последний_день_полномочий">
+        <DataField>Последний день полномочий</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Дата_последнего_дня_полномочий">
+        <DataField>Дата последнего дня полномочий</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Дата_протокола__решения__об_избрании">
+        <DataField>Дата протокола (решения) об избрании</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Номер_протокола__решения__об_избрании">
+        <DataField>Номер протокола (решения) об избрании</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Орган__принявший_решение_об_избрании">
+        <DataField>Орган, принявший решение об избрании</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Дата_протокола__решения__о_прекращении_полномочий">
+        <DataField>Дата протокола (решения) о прекращении полномочий</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Номер_протокола__решения__о_прекращении_полномочий">
+        <DataField>Номер протокола (решения) о прекращении полномочий</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Орган__принявший_решение_о_прекращении_полномочий">
+        <DataField>Орган, принявший решение о прекращении полномочий</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>

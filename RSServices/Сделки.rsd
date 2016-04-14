@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<SharedDataSet xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/shareddatasetdefinition">
+  <DataSet Name="Сделки">
+    <Query>
+      <DataSourceReference>SamDataSource</DataSourceReference>
+      <DataSetParameters>
+        <DataSetParameter Name="@dat">
+            <ReadOnly>false</ReadOnly>
+            <Nullable>false</Nullable>
+            <OmitFromQuery>false</OmitFromQuery>
+            <rd:DbType>datetime</rd:DbType>
+        </DataSetParameter>
+      </DataSetParameters>
+      <CommandText>select * from dbo.ufn_rep_Deals(@dat)</CommandText>
+    </Query>
+    <Fields>
+      <Field Name="Наименование_организации">
+        <DataField>Наименование организации</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Сделка_id_">
+        <DataField>Сделка(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Часть_сделки">
+        <DataField>Часть сделки</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Тип_организации">
+        <DataField>Тип организации</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Тип_сделки_id_">
+        <DataField>Тип сделки(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Тип_сделки">
+        <DataField>Тип сделки</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Организация_id_">
+        <DataField>Организация(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Контрагент___ФЛ">
+        <DataField>Контрагент - ФЛ</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Контрагент_id_">
+        <DataField>Контрагент(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Контрагент">
+        <DataField>Контрагент</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Общество__с_акциями__долями__которого_совершается_сделка_id_">
+        <DataField>Общество, с акциями (долями) которого совершается сделка(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Общество__с_акциями__долями__которого_совершается_сделка">
+        <DataField>Общество, с акциями (долями) которого совершается сделка</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Валюта_расчетов_по_сделке_id_">
+        <DataField>Валюта расчетов по сделке(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Валюта_расчетов_по_сделке">
+        <DataField>Валюта расчетов по сделке</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Объект_эмиссии_id_">
+        <DataField>Объект эмиссии(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Акции__Тип_капитала_id_">
+        <DataField>Акции. Тип капитала(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Тип_капитала">
+        <DataField>Тип капитала</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Номинальная_стоимость_1_акции">
+        <DataField>Номинальная стоимость 1 акции</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Валюта_номинальной_стоимости_акции_id_">
+        <DataField>Валюта номинальной стоимости акции(id)</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Валюта_номинальной_стоимости_акции">
+        <DataField>Валюта номинальной стоимости акции</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Право_голоса_на_акцию">
+        <DataField>Право голоса на акцию</DataField>
+        <rd:TypeName>System.Int32</rd:TypeName>
+      </Field>
+      <Field Name="Наименование_договора">
+        <DataField>Наименование договора</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+      <Field Name="Количество_акций_доля">
+        <DataField>Количество акций/доля</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Дата_договора">
+        <DataField>Дата договора</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Цена_сделки">
+        <DataField>Цена сделки</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Оплачено">
+        <DataField>Оплачено</DataField>
+        <rd:TypeName>System.Decimal</rd:TypeName>
+      </Field>
+      <Field Name="Дата_перехода_права_собственности">
+        <DataField>Дата перехода права собственности</DataField>
+        <rd:TypeName>System.DateTime</rd:TypeName>
+      </Field>
+      <Field Name="Номер_договора">
+        <DataField>Номер договора</DataField>
+        <rd:TypeName>System.String</rd:TypeName>
+      </Field>
+    </Fields>
+  </DataSet>
+</SharedDataSet>
