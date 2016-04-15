@@ -11,9 +11,9 @@ namespace RSServices
 {
     //
     /// <summary>
-    /// Create-DataSets -url "http://rosatomsql/ReportServer_SAM/ReportService2010.asmx" -source . -destination "/SAM/Данные" -overwrite -datasource "/SAM/SAMDS"
-    /// Show
-    /// Help
+    /// RSTool Create-DataSets -url "http://rosatomsql/ReportServer_SAM/ReportService2010.asmx" -source . -destination "/SAM/Данные" -overwrite -datasource "/SAM/SAMDS"
+    /// RSTool List
+    /// RSTool Help
     /// </summary>
     class Program
     {
@@ -23,7 +23,7 @@ namespace RSServices
             {
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("Microsoft SQL Server Reporting Services deployment tool");
-                Console.WriteLine("(c) 2016 Dmitry Kolchev");
+                Console.WriteLine("Copyright (c) 2016 Element 5");
                 Console.WriteLine();
 
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -38,6 +38,10 @@ namespace RSServices
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("------------------------------------------------------------------------");
                 Console.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
             }
         }
 

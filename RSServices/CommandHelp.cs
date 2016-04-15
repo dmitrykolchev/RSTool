@@ -24,5 +24,8 @@ namespace RSServices
                 Console.WriteLine();
             }
         }
+        protected override void ValidateCommand()
+        {
+        }
     }
 }

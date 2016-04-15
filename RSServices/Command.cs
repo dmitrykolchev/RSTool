@@ -72,17 +72,19 @@ namespace RSServices
             }
             ValidateCommand();
         }
-        private void ValidateCommand()
+        protected virtual void ValidateCommand()
         {
-            CommandArgumentMetadata helpMetadata;
-            if (!_metadata.TryGetValue("help", out helpMetadata))
+            if (!IsHelpSpecified)
             {
                 foreach (CommandArgumentMetadata metadata in _metadata.Values)
                 {
                     if (!metadata.Attributes.Optional)
                     {
                         if (!(bool)metadata.IsPropertySpecified.GetValue(this))
-                            throw new InvalidOperationException($"required argument {metadata.Name} not specified");
+                        {
+                            ShowCommandHelp();
+                            throw new InvalidOperationException($"required argument {metadata.Name} is not specified");
+                        }
                     }
                 }
             }
