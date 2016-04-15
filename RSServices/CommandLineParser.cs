@@ -40,7 +40,11 @@ namespace RSServices
         {
             Initialize();
             CommandMetadata metadata;
-            if (_commands.TryGetValue(args[0], out metadata))
+            if(args.Length == 0)
+            {
+                Command = _commands["help"].CreateCommand(new string[] { "help" });
+            }
+            else if (_commands.TryGetValue(args[0], out metadata))
             {
                 Command = metadata.CreateCommand(args);
             }

@@ -116,7 +116,7 @@ namespace RSServices
             Console.WriteLine("Usage:");
             CommandAttribute attribute = this.GetType().GetCustomAttribute<CommandAttribute>();
 
-            Console.Write($"    RSService {attribute.Name} ");
+            Console.Write($"    RSTool {attribute.Name} ");
             foreach (CommandArgumentMetadata metadata in _metadata.Values.OrderBy(t => t.Name).OrderBy(t => t.Attributes.Optional))
             {
                 if (metadata.Attributes.Optional)
